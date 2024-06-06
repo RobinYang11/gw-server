@@ -1,11 +1,7 @@
 
-
-## 版本
-- nodejs > 18.3.0
-
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
-
-
+## 版本和框架
+#### nodejs > 18.3.0
+#### [NestJs 开发者文档](https://github.com/nestjs/nest)
 
 ## git 分支
 ```shell
@@ -14,11 +10,15 @@
   dev // 测试分支
   dev-[your-feature]  // 单独功能分支
 ```
-## git 提交代码规范 ，当git commit时 会自动触发eslint 脚本和jest 测试
+### git 提交代码规范
+  当git commit时 会自动触发eslint 脚本和jest单元测试（端到端测试需要手动 ``` yarn test:e2e ``` )
+
+
 <!-- git commit hooks  -->
-
+### 测试未通过
 ![alt text](image.png)
-
+### 测试通过
+![alt text](image-1.png)
 ## 开发脚本
 
 ```bash
@@ -38,13 +38,13 @@ $ yarn run start:dev
 $ yarn run start:prod
 ```
 
-## Test
+## 测试脚本
 
 ```bash
-# unit tests
+#  单元测试
 $ yarn run test
 
-# e2e tests
+# 端到端测试
 $ yarn run test:e2e
 
 # test coverage
