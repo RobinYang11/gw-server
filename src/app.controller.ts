@@ -7,7 +7,6 @@ export class AppController {
 
   @Get()
   getHello(): string {
-    const unused = ""
     return this.appService.getHello();
   }
 }

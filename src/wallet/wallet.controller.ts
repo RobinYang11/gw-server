@@ -5,11 +5,12 @@ export class WalletController {
 
   @Get("/getHello")
   getHello(): string {
+    const unused = ""
     return 'Hello World!';
   }
 
   @Get("/json")
-  getJson(): object{
+  getJson(): object {
     return {
       "name": "robin"
     }
