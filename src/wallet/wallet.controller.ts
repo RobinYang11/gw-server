@@ -7,7 +7,6 @@ export class WalletController {
 
   @Get("/getHello")
   getHello(): string {
-    console.log("name",abc);
     return 'Hello World!';
   }
 

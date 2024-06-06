@@ -14,6 +14,10 @@
   dev // 测试分支
   dev-[your-feature]  // 单独功能分支
 ```
+## git 提交代码规范 ，当git commit时 会自动触发eslint 脚本和jest 测试
+<!-- git commit hooks  -->
+
+![alt text](image.png)
 
 ## 开发脚本
 
