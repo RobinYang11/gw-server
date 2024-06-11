@@ -5,19 +5,19 @@ import { Buffer } from "buffer";
 import { randomBytes, sign } from "tweetnacl";
 import { CheckProofRequestDto } from "./dto/check-proof-request-dto";
 import { tryParsePublicKey } from "./wallets-data";
-import { CHAIN } from '@tonconnect/ui';
+// import { CHAIN } from '@tonconnect/ui';
 
 const tonProofPrefix = 'ton-proof-item-v2/';
 const tonConnectPrefix = 'ton-connect';
 const allowedDomains = [
   'ton-connect.github.io',
-  'localhost:5173'
+  'localhost:5175'
 ];
 const validAuthTime = 15 * 60; // 15 minute
 @Injectable()
 export class WalletService {
 
-  private readonly client: TonClient4 = null;
+  public client: TonClient4 = null;
 
   public constructor() {
     if (this.client === null) {
@@ -33,6 +33,7 @@ export class WalletService {
       // }
       this.client = new TonClient4({
         endpoint: 'https://testnet-v4.tonhubapi.com'
+        // endpoint: 'https://toncenter.com/api/v2/jsonRPC',
       });
     }
   }
@@ -68,7 +69,6 @@ export class WalletService {
   public async checkProof(payload: CheckProofRequestDto, getWalletPublicKey: (address: string) => Promise<Buffer | null>): Promise<boolean> {
     try {
       const stateInit = loadStateInit(Cell.fromBase64(payload.proof.state_init).beginParse());
-      console.log("###", stateInit)
 
       // 1. First, try to obtain public key via get_public_key get-method on smart contract deployed at Address.
       // 2. If the smart contract is not deployed yet, or the get-method is missing, you need:

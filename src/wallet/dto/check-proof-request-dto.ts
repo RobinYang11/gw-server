@@ -1,20 +1,47 @@
+import { ApiProperty } from "@nestjs/swagger";
 import { CHAIN } from "@tonconnect/ui";
-import zod from "zod";
 
-export const CheckProofRequest = zod.object({
-  address: zod.string(),
-  network: zod.enum([CHAIN.MAINNET, CHAIN.TESTNET]),
-  public_key: zod.string(),
-  proof: zod.object({
-    timestamp: zod.number(),
-    domain: zod.object({
-      lengthBytes: zod.number(),
-      value: zod.string(),
-    }),
-    payload: zod.string(),
-    signature: zod.string(),
-    state_init: zod.string(),
-  }),
-});
+export class CheckProofRequestDto {
 
-export type CheckProofRequestDto = zod.infer<typeof CheckProofRequest>;
+  @ApiProperty({
+    name: "address",
+    type: String
+  })
+  address: string;
+
+  @ApiProperty({
+    required: true,
+    type: String
+  })
+  network: CHAIN.MAINNET | CHAIN.TESTNET;
+
+  @ApiProperty({
+    required: true,
+    type: String
+  })
+  public_key: string;
+
+  @ApiProperty({
+    required: true,
+    type: `{
+      timestamp: number,
+      domain: {
+        lengthBytes: number;
+        value: string;
+      };
+      payload: string;
+      signature: string;
+      state_init: string;
+    }`
+  })
+  proof: {
+    timestamp: number,
+    domain: {
+      lengthBytes: number;
+      value: string;
+    };
+    payload: string;
+    signature: string;
+    state_init: string;
+  }
+}

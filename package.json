@@ -29,6 +29,7 @@
     "@ton/crypto": "^3.2.0",
     "@ton/ton": "^13.11.1",
     "@tonconnect/ui": "^2.0.3",
+    "jose": "^5.4.0",
     "reflect-metadata": "^0.2.0",
     "rxjs": "^7.8.1"
   },
