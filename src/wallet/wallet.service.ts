@@ -11,7 +11,9 @@ const tonProofPrefix = 'ton-proof-item-v2/';
 const tonConnectPrefix = 'ton-connect';
 const allowedDomains = [
   'ton-connect.github.io',
-  'localhost:5175'
+  'localhost:5175',
+  '127.0.0.1:3000',
+  'localhost:3000'
 ];
 const validAuthTime = 15 * 60; // 15 minute
 @Injectable()
